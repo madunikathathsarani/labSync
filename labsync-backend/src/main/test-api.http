@@ -1,0 +1,134 @@
+### Get All Assets
+GET http://localhost:8080/api/assets
+
+### Create New Asset
+POST http://localhost:8080/api/assets
+Content-Type: application/json
+
+{
+  "workstationNo": 1,
+  "specificationDetails": "Core i5, 16GB RAM",
+  "status": "Working",
+  "gridRow": 1,
+  "gridColumn": 1
+}
+### Get All Labs
+GET http://localhost:8080/api/labs
+
+### Create New Lab
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "Software Engineering Lab 01",
+  "location": "Building A - 2nd Floor",
+  "capacity": 40,
+  "status": "Available"
+}
+### Get All Users
+GET http://localhost:8080/api/users
+
+### Create New User
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "ADMIN"
+}
+### Get All Fault Reports
+GET http://localhost:8080/api/fault-reports
+
+### Create New Fault Report
+POST http://localhost:8080/api/fault-reports
+Content-Type: application/json
+
+{
+  "assetId": 1,
+  "reportedById": 1,
+  "description": "Monitor display is flickering constantly.",
+  "priority": "HIGH"
+}
+
+### Get All Reservations
+GET http://localhost:8080/api/reservations
+
+### Create New Reservation
+POST http://localhost:8080/api/reservations
+Content-Type: application/json
+
+{
+  "labId": 1,
+  "userId": 1,
+  "startTime": "2026-08-25T09:00:00",
+  "endTime": "2026-08-25T11:00:00",
+  "purpose": "ICT 321 Practical Session"
+}
+
+### Lab 1 - CC1
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "CC1",
+  "location": "Main Building - 1st Floor",
+  "capacity": 50,
+  "status": "Available"
+}
+
+### Lab 2 - CC2
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "CC2",
+  "location": "Main Building - 1st Floor",
+  "capacity": 40,
+  "status": "Available"
+}
+
+### Lab 3 - A5
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "A5",
+  "location": "Block A - Ground Floor",
+  "capacity": 30,
+  "status": "Available"
+}
+### Lab 1 - CC1
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "CC1",
+  "location": "Main Building - 1st Floor",
+  "capacity": 50,
+  "status": "Available"
+}
+
+### Lab 2 - CC2
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "CC2",
+  "location": "Main Building - 1st Floor",
+  "capacity": 40,
+  "status": "Available"
+}
+
+### Lab 3 - A5
+POST http://localhost:8080/api/labs
+Content-Type: application/json
+
+{
+  "labName": "A5",
+  "location": "Main Building - Ground Floor",
+  "capacity": 30,
+  "status": "Available"
+}
+

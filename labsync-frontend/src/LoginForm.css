@@ -1,0 +1,311 @@
+:root {
+  --lf-gold: #f5ab16;
+  --lf-amber: #e8890c;
+  --lf-maroon: #c02425;
+  --lf-text: #ffffff;
+  --lf-muted: rgba(255, 255, 255, 0.85);
+  --lf-field: rgba(255, 255, 255, 0.18);
+  --lf-field-focus: rgba(255, 255, 255, 0.3);
+  --lf-glass-border: rgba(255, 255, 255, 0.35);
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  /* Original photo, no color tint. Only a light neutral scrim so white text stays readable */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)), url('./bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--lf-text);
+}
+
+/* ---------- Shell: fully transparent ---------- */
+.login-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+  max-width: 980px;
+  min-height: 520px;
+  padding: 48px 56px;
+  box-sizing: border-box;
+}
+
+/* ---------- Left: welcome ---------- */
+.welcome-panel { flex: 1 1 0; min-width: 0; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); }
+
+.logo-badge { display: inline-flex; margin-bottom: 28px; }
+
+.campus-logo {
+  width: 64px;
+  height: 64px;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+  display: block;
+}
+
+.welcome-title {
+  margin: 0;
+  font-size: clamp(32px, 4.4vw, 48px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.welcome-line {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin: 24px 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--lf-gold), var(--lf-maroon));
+}
+
+.welcome-text {
+  margin: 0 0 12px;
+  max-width: 340px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--lf-muted);
+}
+
+.university-title { margin: 0; font-size: 12px; color: var(--lf-muted); }
+
+/* ---------- Card: transparent glass ---------- */
+.login-card {
+  flex: 0 0 360px;
+  width: 360px;
+  max-width: 100%;
+  padding: 32px 30px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--lf-glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.card-logo { display: none; } /* mobile only */
+
+.form-type-heading {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* ---------- Old header markup (kept for compatibility) ---------- */
+.login-header { text-align: center; margin-bottom: 15px; }
+.login-header .campus-logo { margin: 0 auto 10px; }
+.main-title { margin: 0; font-size: 28px; font-weight: 700; color: #fff; }
+.sub-title { margin: 4px 0 2px; font-size: 14px; font-weight: 600; color: var(--lf-text); }
+.login-header .university-title { font-size: 12px; }
+.divider { border: 0; height: 1px; background: var(--lf-glass-border); margin: 16px 0; }
+
+/* ---------- Form fields ---------- */
+.form-group { margin-bottom: 16px; text-align: left; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lf-text);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 11px 16px;
+  box-sizing: border-box;
+  border: 1px solid var(--lf-glass-border);
+  border-radius: 999px;
+  background: var(--lf-field);
+  color: var(--lf-text);
+  font-family: inherit;
+  font-size: 14px;
+  text-shadow: none;
+  outline: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.form-group input::placeholder { color: rgba(255, 255, 255, 0.65); }
+
+.form-group input:focus,
+.form-group select:focus {
+  background: var(--lf-field-focus);
+  border-color: var(--lf-gold);
+}
+
+.form-group select option { color: #222; }
+
+.field-error {
+  display: block;
+  margin: 6px 0 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffb4b4;
+}
+
+/* ---------- Password strength ---------- */
+.pw-box {
+  margin: -4px 0 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--lf-glass-border);
+  text-shadow: none;
+}
+
+.pw-meter {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.pw-meter i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.25s, background 0.25s;
+}
+.pw-meter .lvl-0 { background: transparent; }
+.pw-meter .lvl-1 { background: #ff6b6b; }
+.pw-meter .lvl-2 { background: #ffc247; }
+.pw-meter .lvl-3 { background: #4ade80; }
+
+.pw-label { margin: 8px 0; font-size: 12px; color: var(--lf-muted); }
+.pw-label b { color: #fff; }
+
+.pw-rules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--lf-muted);
+}
+.pw-rules li.ok { color: #86efac; font-weight: 600; }
+
+/* ---------- Buttons & links ---------- */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--lf-gold), var(--lf-amber));
+  color: #2b1a00;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: none;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.login-btn:hover:not(:disabled) { filter: brightness(1.08); }
+.login-btn:active:not(:disabled) { transform: translateY(1px); }
+.login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.login-btn:focus-visible,
+.link-btn:focus-visible,
+.otp-box:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.link-row { display: flex; justify-content: flex-end; margin: -6px 0 6px; }
+.link-row.center { justify-content: center; margin: 14px 0 0; }
+
+.link-btn {
+  padding: 2px 4px;
+  border: none;
+  background: none;
+  color: #ffd36b;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.link-btn:hover { text-decoration: underline; }
+
+.muted { font-size: 13px; color: var(--lf-muted); }
+
+.step-text,
+.hint-text {
+  margin: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--lf-muted);
+  text-align: center;
+}
+.hint-text { margin: 16px 0 0; font-size: 12px; }
+
+/* ---------- Alerts ---------- */
+.alert {
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  text-shadow: none;
+}
+.alert-error { background: rgba(192, 36, 37, 0.55); border: 1px solid rgba(255, 170, 170, 0.7); }
+.alert-info { background: rgba(255, 255, 255, 0.2); border: 1px solid var(--lf-glass-border); }
+
+/* ---------- OTP boxes ---------- */
+.otp-row { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 20px; }
+
+.otp-box {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1.15;
+  padding: 0;
+  border: 1px solid var(--lf-glass-border);
+  border-radius: 10px;
+  background: var(--lf-field);
+  color: var(--lf-text);
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: none;
+  outline: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.otp-box:focus { background: var(--lf-field-focus); border-color: var(--lf-gold); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .login-shell { justify-content: center; padding: 32px 0; min-height: 0; }
+  .welcome-panel { display: none; }
+  .login-card { flex: 1 1 auto; padding: 24px 20px; }
+  .card-logo {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    padding: 6px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: contain;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
